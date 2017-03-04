@@ -17,4 +17,4 @@
 
 ### Fake Trello ERD
 
-![fake trello](https://cloud.githubusercontent.com/assets/16478353/23581692/7700b768-00de-11e7-958c-9d3a222d1a74.jpg)
+
