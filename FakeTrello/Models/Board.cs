@@ -15,9 +15,13 @@ namespace FakeTrello.Models
 
         public string URL { get; set; }
 
-        //Auxillary (not required to define/drive relationship)
+
+       
+
+        // Auxiliary (i.e. not required to drive/define relationship)
         public TrelloUser Owner { get; set; }
 
-        public List<List> Lists { get; set; }
+        public List<List> Lists { get; set;}
+
     }
 }

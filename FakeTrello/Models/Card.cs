@@ -1,8 +1,11 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+
+
 
 namespace FakeTrello.Models
 {
@@ -15,7 +18,8 @@ namespace FakeTrello.Models
 
         public string Description { get; set; }
 
-        // returns the list the card belongs to
+        // Auxiliary: given a card instance,
+        // return the list it belongs to.
         public List BelongsTo { get; set; }
     }
 }

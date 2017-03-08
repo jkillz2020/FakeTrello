@@ -9,7 +9,8 @@ namespace FakeTrello.Models
     public class List
     {
         [Key]
-        public int ListdId { get; set; }
+
+        public int ListId {get;set;}
 
         public string Name { get; set; }
 

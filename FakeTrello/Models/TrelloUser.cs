@@ -4,16 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-//Entity is our Object Relational Mapper (ORM)
+
+// Entity is our Object Relational Mapper (ORM)
 
 namespace FakeTrello.Models
 {
     public class TrelloUser
     {
         [Key]
-        public int TrelloUserId { get; set; } //Primary Key
 
-        // Stacking of properties applies to multiple annotations
+        public int TrelloUserId { get; set; } // Primary Key
+
+        // Stacking of properties applies multiple annotations
         // to the following property
         [MinLength(10)]
         [MaxLength(60)]
@@ -32,5 +34,6 @@ namespace FakeTrello.Models
         public List<List> Lists { get; set; } // 1 to many
 
         public List<Card> Cards { get; set; } // 1 to many
+
     }
 }
