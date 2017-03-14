@@ -8,9 +8,25 @@ namespace FakeTrello.DAL
 {
     public class FakeTrelloRepository : IRepository
     {
+        //private FakeTrelloContext context; //data member not needed
+
+        public FakeTrelloRepository()
+        {
+            Context = new FakeTrelloContext();
+        }
+
+        public FakeTrelloRepository(FakeTrelloContext context)
+        {
+            Context = context;
+        }
+
+        public FakeTrelloContext Context { get; set; } // Property
+
         public void AddBoard(string name, ApplicationUser owner)
         {
-            throw new NotImplementedException();
+            Board board = new Board { Name = name, Owner = owner };
+            Context.Boards.Add(board);
+            Context.SaveChanges();
         }
 
         public void AddCard(string name, int listId, string ownerId)
@@ -45,7 +61,19 @@ namespace FakeTrello.DAL
 
         public Board GetBoard(int boardId)
         {
-            throw new NotImplementedException();
+            Board found_board = Context.Boards.FirstOrDefault(b => b.BoardId == boardId);  //returns null if nothing is found
+            return found_board;
+
+            /* Using .First()
+             * try {
+             * Board found_board = Context.Boards.First(b => b.BoardId == boardId);
+             * return found_board;
+             * } catch(Exception @) {
+             * return null;
+             }
+             */
+            //Context.Boards.First(); //Throw an exception if nothing found
+            
         }
 
         public List<Board> GetBoardsFromUser(string userId)
