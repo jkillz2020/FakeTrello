@@ -14,11 +14,12 @@ namespace FakeTrello.DAL.Repository
     public class BoardRepository : IBoardManager, IBoardQuery
     {
         //private FakeTrelloContext context; // Data member
-        SqlConnection _trelloConnection;
+       IDbConnection _trelloConnection;
 
-        public BoardRepository()
+        public BoardRepository(IDbConnection trelloConnection)
         {
-            _trelloConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            _trelloConnection = trelloConnection;
+           // _trelloConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
 
         public void AddBoard(string name, ApplicationUser owner)
